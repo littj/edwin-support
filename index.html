@@ -1,0 +1,157 @@
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+
+<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" data-toggle="validator">
+
+    <input type=hidden name="orgid" value="00D6g000003uPDt">
+    <input type=hidden name="retURL" value="https://edwinsupporttest.nelsontechdev.com/thankyou.html">
+    <link rel="stylesheet" href="bootstrap.min.css" type='text/css'>
+    <link href="custom.css" rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,600,700" rel="stylesheet">
+    <script src="jquery.min.js"></script>
+    <script src="popper.min.js"></script>
+    <script src="validator.min.js" type="application/javascript"></script>
+    
+    <!--CG 04-30-2020
+        Commenting out the contact.js portion, it doesn't seem to call anything on this page.
+    -->
+    <!--<script src="contact.js"></script>-->
+    
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+    <!--  these lines if you wish to test in debug mode.                          -->
+    <!--  <input type="hidden" name="debug" value=1>                              -->
+    <!--  <input type="hidden" name="debugEmail"                                  -->
+    <!--  value="salesforce@kejosolutions.com">                                   -->
+    <!--  ----------------------------------------------------------------------  -->
+    <div class="container">
+
+
+        <div class="row">
+
+            <div>
+                <header class="banner">edwin <span class="banneritalic">&nbsp;&nbsp;support</span> </header>
+
+                <p>&nbsp;</p>
+                <h1>Edwin Support Request</h1>
+
+                <p class="lead">To request support for an issue you are having with your Edwin, please fill in the following form. You can expect a response within 24 hours, Monday to Friday 8am to 6pm EST.</p>
+
+                <p class="text-muted">
+                    <strong>*</strong> These fields are required.</p>
+                
+                <h2>Who you are:</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="name">Contact Name</label><br>
+                            <!--
+                                CG 05-06-2020: Saqib brought to our attention that Name cannot be a required field according to Privacy
+                                restrictions for the province of Nova Scotia. The following two lines are commented out in case this is 
+                                re-instated in the future.-->
+                            <!--<input id="name" class="form-control" required="required" maxlength="80" name="name" size="20" type="text" />
+                                <div class="help-block with-errors"></div>-->
+                            <input id="name" class="form-control" maxlength="80" name="name" size="20" type="text" />
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="email">Email *</label> <br>
+                            <input id="email" class="form-control" required="required" maxlength="80" name="email" size="20" type="email" data-error="Valid email is required" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="00N6g00000RIGm4">Which School Are You Enrolled At? *</label> <br>
+                            <input id="00N6g00000RIGm4" name="00N6g00000RIGm4" class="form-control" maxlength="255" required="required" size="20" type="text" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="00N6g00000RHoNp">Please Identify Your Position at the School. *</label> <br>
+                            <select id="00N6g00000RHoNp" name="00N6g00000RHoNp" required="required" title="Please Identify your School Position.">
+                                <option value="">None</option>
+                                <option value="Director of Learning">Director of Learning</option>
+                                <option value="Educational Assistant">Educational Assistant</option>
+                                <option value="Internal">Internal</option>
+                                <option value="Parent">Parent</option>
+                                <option value="Principal">Principal</option>
+                                <option value="Spec Ed">Spec Ed</option>
+                                <option value="Student">Student</option>
+                                <option value="Teacher">Teacher</option>
+                                <option value="Tech">Tech</option>
+                                <option value="Tech Lead">Tech Lead</option>
+                                <option value="Vice Principal">Vice Principal</option>
+                                <!--<option value="VP">VP</option>-->
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <h2>Issue Summary:</h2>
+                <div class="form-group">
+                    <label for="00N6g00000RILFK">Provide a Short Summary of the Issue That You Are Having * </label> <br>
+                    <input id="00N6g00000RILFK" name="00N6g00000RILFK" class="form-control" placeholder="Example: Unable to search in library" 
+                        maxlength="255" required="required" size="255" type="text" 
+                        onkeydown="limitText(document.getElementById('00N6g00000RILFK'),document.getElementById('summaryCount'),255);" 
+                        onkeyup="limitText(document.getElementById('00N6g00000RILFK'),document.getElementById('summaryCount'),255); " 
+                        pattern=".*\S+.*" data-error="Please provide a short summary of the issue that you are having." />
+                    <p class="characterCount" id="summaryCount">255</p>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Include Details of the Issue (Steps to Reproduce, Including Device Information, Browser and Operating System You're Using, Etc)</label> <br>
+                    <textarea name="description" id="description"
+                        onkeydown="limitText(this.form.description,document.getElementById('descriptionCount'),3000);" 
+                        onkeyup="limitText(this.form.description,document.getElementById('descriptionCount'),3000);" 
+                        size="3000" maxlength="3000" class="form-control" pattern=".*\S+.*"></textarea>
+                        <p class="characterCount" id="descriptionCount">3000</p>
+                </div>
+
+                <h2>For Edwin Device Users:</h2>
+                <div class="form-group">
+                    <label for="00N6g00000RHoP2">What Is Your Edwin Device Asset ID? </label> <br>
+                    <input id="00N6g00000RHoP2" name="00N6g00000RHoP2" class="form-control" maxlength="14" size="20" type="text" />
+                    <p class="text-muted">Edwin Device Asset ID is on the bottom of your Edwin device. It is a string
+                            composed of numbers and letters. An example of an Asset ID is shown below
+                            (highlighted in green).</p>
+                    <img src="img/38697958_1616221908488669_7898277207590567936_n.jpg" alt="device asset id pic">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="00N6g00000RHoPC">What Is Your Edwin Device Service Tag? </label> <br>
+                    <input id="00N6g00000RHoPC" name="00N6g00000RHoPC" class="form-control" maxlength="8" size="20" type="text" />
+                    <p class="text-muted">Service Tag is on the bottom of your Edwin device. It is a seven (7)
+                            character string composed of numbers and letters. An example of an Service
+                            Tag is shown below (highlighted in green).</p>
+                    <img src="img/38814383_1629456003847510_4307819985633280000_n.jpg" alt="device service tag pic">
+                </div>
+
+                <p>&nbsp;</p>
+                <input type="submit" name="submit" class="btn btn-success btn-send" value="Submit">
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    function limitText(limitField, limitCount, limitNum) {
+        if (limitField.value.length > limitNum) {
+            limitField.value = limitField.value.substring(0, limitNum);
+        } else {
+            limitCount.innerHTML = limitNum - limitField.value.length;
+        }
+    }
+
+</script>

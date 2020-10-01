@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Edwin Support Inquiry</title>
+
+        <link rel="stylesheet" href="bootstrap.min.css" type="text/css" />
+        <link href="custom.css" rel="stylesheet" type="text/css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,600,700"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>Edwin Support Request</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="es-cat1">
+                                What is your request regarding?
+                            </label>
+                            <select
+                                name="es-cat1"
+                                id="es-cat1"
+                                class="form-control"
+                                onchange="getSubCategories()"
+                            >
+                                <option value="-">-</option>
+                                <option
+                                    data-url="form-device.html"
+                                    value="Edwin App"
+                                >
+                                    Edwin App
+                                </option>
+                                <option
+                                    data-url="form-device.html"
+                                    value="Edwin Device"
+                                >
+                                    Edwin Device
+                                </option>
+                                <option
+                                    data-url="form-device.html"
+                                    value="Edwin User Licensing"
+                                >
+                                    Edwin User Licensing
+                                </option>
+                                <option value="Partner Apps">
+                                    Partner Apps
+                                </option>
+                                <option value="Other">Other</option>
+                            </select>
+
+                            <select
+                                name="es-cat2"
+                                id="es-cat2"
+                                class="form-control"
+                                onchange="getForm()"
+                            >
+                                <option data-url="#" value="-">-</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="edwin-support-form.js"></script>
+    </body>
+</html>

@@ -1,14 +1,18 @@
 body {
-    font-family: 'Open Sans', sans-serif;
-    overflow-y:scroll;
+    font-family: "Open Sans", sans-serif;
+    overflow-y: scroll;
 }
 
 legend {
     font-size: 1rem !important;
-
 }
 
-.container{
+a {
+    color: #104171;
+    text-decoration: underline;
+}
+
+.container {
     width: 563px;
     margin: 40px auto;
 }
@@ -21,22 +25,21 @@ legend {
     font-weight: bold;
     font-size: 24px;
     line-height: 33px;
-    color: #679EBF;
+    color: #679ebf;
     text-align: left;
-
 }
 
 .banneritalic {
     font-size: 0.7em;
     font-weight: normal;
     font-style: italic;
-    border-left: 1.5px outset #679EBF;
+    border-left: 1.5px outset #679ebf;
 }
 
 h1 {
     width: 100%;
     height: 56px;
-    margin-bottom:1.05rem;
+    margin-bottom: 1.05rem;
     font-style: normal;
     font-weight: 300;
     font-size: 3.07rem;
@@ -47,7 +50,7 @@ h1 {
 .lead {
     width: 564px;
     height: 78px;
-    
+
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -57,20 +60,20 @@ h1 {
     color: #333333;
 }
 
-.form-group{
-    margin-top:1.88rem;
+.form-group {
+    margin-top: 1.88rem;
     min-height: 40px;
-    margin-bottom:0;
+    margin-bottom: 0;
 }
 
-.form-group img{
-    width:60%;
+.form-group img {
+    width: 60%;
 }
 
-h2{
+h2 {
     width: 100%;
     height: 45px;
-    margin-top:50px;
+    margin-top: 50px;
 
     font-style: normal;
     font-weight: 300;
@@ -88,28 +91,40 @@ label {
     line-height: 22px;
     /* identical to box height */
 
-    color: #333333; 
+    color: #333333;
 }
 
-input, select, textarea {
+select {
+    margin-bottom: 16px;
+}
+
+select#es-cat2 {
+    display: none;
+}
+
+/* input,
+select,
+textarea {
     width: 100%;
     height: 40px;
     padding: 0 14px;
-    background: #FFFFFF;
-    border: 1px solid #C4C4C4;
+    background: #ffffff;
+    border: 1px solid #c4c4c4;
     box-sizing: border-box;
     border-radius: 4px;
-}
+} */
 
-select{appearance: none;}
+/* select {
+    appearance: none;
+} */
 
-textarea{
-    min-height:160px;
+textarea {
+    min-height: 160px;
 }
 
 .characterCount {
     text-align: right;
-    margin:10px 0;
+    margin: 10px 0;
     height: 19px;
     left: 981px;
     top: 972px;
@@ -120,7 +135,7 @@ textarea{
     line-height: 19px;
 }
 
-.text-muted{
+.text-muted {
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -135,20 +150,20 @@ textarea{
     display: flex;
     flex-direction: row;
     padding: 9px 20px;
-    
+
     width: 100px;
     height: 40px;
-    
-    background: #104171!important;
+
+    background: #104171 !important;
     border-radius: 4px;
-    border-color: #104171!important;
+    border-color: #104171 !important;
 
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
 
-    color: #FFFFFF;
+    color: #ffffff;
 
     flex: none;
     order: 0;
@@ -156,14 +171,64 @@ textarea{
     margin: 10px 0px;
 }
 
-.btn-send:focus{
-    box-shadow:none !important;
+.btn-send:focus {
+    box-shadow: none !important;
     opacity: 0.8;
 }
 
-.btn.disabled{
-    background:#666666 !important;
-    border-color:#666666 !important;
+.btn.disabled {
+    background: #666666 !important;
+    border-color: #666666 !important;
+}
+
+.es-big-button-container {
+    margin-top: 30px;
+}
+
+.es-big-button {
+    background-color: #fff;
+    color: #104171;
+    border: 1px solid #104171;
+    border-radius: 4px;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.es-big-button:hover {
+    color: #fff;
+    background-color: #104171;
+}
+
+/* .es-big-button-white {
+    background-color: #fff;
+    color: #104171;
+    border: 1px solid #104171;
+} */
+
+.es-big-button-white:hover {
+    color: #104171;
+}
+
+.es-article-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    column-count: 2;
+    column-gap: 20px;
+}
+
+.es-article-list a {
+    display: block;
+    margin-bottom: 14px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
 }
 
 .help-block.with-errors {
@@ -176,7 +241,7 @@ textarea{
 }
 
 .note {
-    font-size: .8em;
+    font-size: 0.8em;
 }
 
 .title {
@@ -205,7 +270,7 @@ textarea{
 #studentbtn,
 #phonebtn {
     opacity: 0;
-    transition: .5s ease;
+    transition: 0.5s ease;
     height: 0;
 }
 
@@ -214,12 +279,12 @@ textarea{
 .bn1:checked ~ #studentbtn,
 .contactemail:checked ~ #contactphone {
     opacity: 0;
-    height: 0
+    height: 0;
 }
 
 .bn2:checked ~ #otherbn {
     opacity: 0;
-    height: 0
+    height: 0;
 }
 
 .bn2:checked ~ #onebn {
@@ -292,7 +357,7 @@ textarea{
     top: 0.75rem;
     background: none;
     /*    border: 2px solid #679EBF;*/
-    color: #679EBF;
+    color: #679ebf;
     font-size: 1.3rem;
     /*    border-radius: 50%;*/
     width: 30px;
@@ -307,8 +372,7 @@ textarea{
     display: none;
 }
 
-@media (max-width:375px) {
-
+@media (max-width: 375px) {
     .bn2,
     .bn3,
     .bn4,
@@ -319,7 +383,6 @@ textarea{
 
     .btn-reset-file {
         top: 0.1rem;
-
     }
 }
 

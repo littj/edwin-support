@@ -2,15 +2,34 @@
  * EDWIN SUPPORT FORM
  */
 
-var form_url, cat1, cat2, cat1_selected;
+var form_url;
+var cat1 = document.getElementById("es-cat1");
+var cat2 = document.getElementById("es-cat2");
 
-function getSubCategories() {
-    cat1 = document.getElementById("es-cat1");
-    cat2 = document.getElementById("es-cat2");
-    form_url = cat1.options[cat1.selectedIndex].dataset.url;
-    cat1_selected = cat1.options[cat1.selectedIndex].value;
+// Initial options for category 1 selection dropdown
+cat1.options[0] = new Option("-", "-");
+cat1.options[1] = new Option("Edwin App", "1");
+cat1.options[1].setAttribute('data-url', 'form1.html');
+cat1.options[2] = new Option("Edwin Device", "2");
+cat1.options[2].setAttribute('data-url', 'form-device.html');
+cat1.options[3] = new Option("Edwin User Licensing", "3");
+cat1.options[3].setAttribute('data-url', 'form2.html');
+cat1.options[4] = new Option("Partner Apps", "4");
+cat1.options[5] = new Option("Other", "4");
 
-    switch (cat1_selected) {
+
+function getSubCategories(cat1_selected = false) {
+    // var cat1 = document.getElementById("es-cat1");
+    // var cat2 = document.getElementById("es-cat2");
+
+    if (!cat1_selected) {
+        form_url = cat1.options[cat1.selectedIndex].dataset.url;
+        window.cat1_selected = cat1.options[cat1.selectedIndex].value;
+    } else {
+        window.cat1_selected = cat1_selected;
+    }
+
+    switch (window.cat1_selected) {
         // OPTION: Edwin App
         case "1":
             cat2.style.display = "block"; // Reveal second select dropdown
@@ -54,7 +73,7 @@ function getSubCategories() {
         case "4":
             cat2.style.display = "none";
             cat2.options.length = 0;
-            window.location.assign("form-partners.html?cat1=4");
+            window.location.assign("partners.html?cat1=4");
 
             break;
 
@@ -77,9 +96,19 @@ function getForm() {
     // Get value of current selection
     // Append form_value and current selection value to URL
 
-    var cat2 = document.getElementById("es-cat2");
     var cat2_selected = cat2.options[cat2.selectedIndex].value;
-    window.location.assign(form_url + "?cat1=" + cat1_selected + "&cat2=" + cat2_selected);
+
+    // On new page? Get form_url
+    if (form_url !== undefined) {
+        window.location.assign(
+            form_url + "?cat1=" + cat1_selected + "&cat2=" + cat2_selected
+        );
+    } /* else {
+        form_url = cat1.options[cat1.selectedIndex].dataset.url;
+        window.location.assign(
+            form_url + "?cat1=" + cat1_selected + "&cat2=" + cat2_selected
+        );
+    } */
 }
 
 /**
@@ -88,6 +117,12 @@ function getForm() {
 const queryString = window.location.search; // Query String from URL
 const urlParams = new URLSearchParams(queryString); // Query string parameters
 var cat1_param = urlParams.get("cat1");
-cat1.value = cat1_param; // Set category 1 selection dropdown to the value the user selected previously
+var cat2_param = urlParams.get("cat2");
 
-// CHeck for cat 2? Do stuff...
+if (cat1_param !== null && cat2_param !== null) {
+    // Set category 1 and 2 selection dropdown to the values the user selected previously
+    cat1.value = cat1_param;
+    getSubCategories(cat1_param);
+    cat2.value = cat2_param;
+    cat2.style.display = "block";
+}

@@ -84,6 +84,18 @@ h2 {
     color: #104171;
 }
 
+h3 {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    color: #104171;
+}
+
+.solutions {
+    padding: 20px;
+    background-color: #f0f4f8;
+}
+
 label {
     font-style: normal;
     font-weight: 600;

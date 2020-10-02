@@ -113,71 +113,10 @@
                                     />
                                     <div class="help-block with-errors"></div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="00N6g00000RIGm4"
-                                        >Which School Are You Enrolled At?
-                                        *</label
-                                    >
-                                    <br />
-                                    <input
-                                        id="00N6g00000RIGm4"
-                                        name="00N6g00000RIGm4"
-                                        class="form-control"
-                                        maxlength="255"
-                                        required="required"
-                                        size="20"
-                                        type="text"
-                                    />
-                                    <div class="help-block with-errors"></div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="00N6g00000RHoNp"
-                                        >Please Identify Your Position at the
-                                        School. *</label
-                                    >
-                                    <br />
-                                    <select
-                                        id="00N6g00000RHoNp"
-                                        name="00N6g00000RHoNp"
-                                        required="required"
-                                        title="Please Identify your School Position."
-                                        class="form-control"
-                                    >
-                                        <option value="">None</option>
-                                        <option value="Director of Learning">
-                                            Director of Learning
-                                        </option>
-                                        <option value="Educational Assistant">
-                                            Educational Assistant
-                                        </option>
-                                        <option value="Internal">
-                                            Internal
-                                        </option>
-                                        <option value="Parent">Parent</option>
-                                        <option value="Principal">
-                                            Principal
-                                        </option>
-                                        <option value="Spec Ed">Spec Ed</option>
-                                        <option value="Student">Student</option>
-                                        <option value="Teacher">Teacher</option>
-                                        <option value="Tech">Tech</option>
-                                        <option value="Tech Lead">
-                                            Tech Lead
-                                        </option>
-                                        <option value="Vice Principal">
-                                            Vice Principal
-                                        </option>
-                                        <!--<option value="VP">VP</option>-->
-                                        <option value="Other">Other</option>
-                                    </select>
-                                    <div class="help-block with-errors"></div>
-                                </div>
                             </div>
                         </div>
 
-                        <h2>Issue Summary:</h2>
+                        <h2>Issue Description:</h2>
                         <div class="form-group">
                             <label for="description"
                                 >Include Details of the Issue (Steps to
@@ -200,55 +139,19 @@
                             </p>
                         </div>
 
-                        <h2>For Edwin Device Users:</h2>
                         <div class="form-group">
-                            <label for="00N6g00000RHoP2"
-                                >What Is Your Edwin Device Asset ID?
+                            <label for="attachments">
+                                Attachements: <br />
+                                <span class="text-muted">
+                                    CSV, max 3,
+                                    5mb per file (<a href="#">download sample csv template</a>)
+                                </span>
                             </label>
-                            <br />
                             <input
-                                id="00N6g00000RHoP2"
-                                name="00N6g00000RHoP2"
-                                class="form-control"
-                                maxlength="14"
-                                size="20"
-                                type="text"
-                            />
-                            <p class="text-muted">
-                                Edwin Device Asset ID is on the bottom of your
-                                Edwin device. It is a string composed of numbers
-                                and letters. An example of an Asset ID is shown
-                                below (highlighted in green).
-                            </p>
-                            <img
-                                src="img/38697958_1616221908488669_7898277207590567936_n.jpg"
-                                alt="device asset id pic"
-                            />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="00N6g00000RHoPC"
-                                >What Is Your Edwin Device Service Tag?
-                            </label>
-                            <br />
-                            <input
-                                id="00N6g00000RHoPC"
-                                name="00N6g00000RHoPC"
-                                class="form-control"
-                                maxlength="8"
-                                size="20"
-                                type="text"
-                            />
-                            <p class="text-muted">
-                                Service Tag is on the bottom of your Edwin
-                                device. It is a seven (7) character string
-                                composed of numbers and letters. An example of
-                                an Service Tag is shown below (highlighted in
-                                green).
-                            </p>
-                            <img
-                                src="img/38814383_1629456003847510_4307819985633280000_n.jpg"
-                                alt="device service tag pic"
+                                type="file"
+                                class="form-control-file"
+                                id="attachments"
+                                name="attachments"
                             />
                         </div>
 

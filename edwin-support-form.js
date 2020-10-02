@@ -15,7 +15,7 @@ cat1.options[2].setAttribute('data-url', 'form-device.html');
 cat1.options[3] = new Option("Edwin User Licensing", "3");
 cat1.options[3].setAttribute('data-url', 'form2.html');
 cat1.options[4] = new Option("Partner Apps", "4");
-cat1.options[5] = new Option("Other", "4");
+cat1.options[5] = new Option("Other", "5");
 
 
 function getSubCategories(cat1_selected = false) {
@@ -118,6 +118,7 @@ const queryString = window.location.search; // Query String from URL
 const urlParams = new URLSearchParams(queryString); // Query string parameters
 var cat1_param = urlParams.get("cat1");
 var cat2_param = urlParams.get("cat2");
+var cat2_check = false;
 
 if (cat1_param !== null && cat2_param !== null) {
     // Set category 1 and 2 selection dropdown to the values the user selected previously
@@ -125,4 +126,9 @@ if (cat1_param !== null && cat2_param !== null) {
     getSubCategories(cat1_param);
     cat2.value = cat2_param;
     cat2.style.display = "block";
+}
+
+if (!cat2_check) {
+    cat1.value = cat1_param;
+    cat2_check = true;
 }

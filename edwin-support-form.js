@@ -27,9 +27,6 @@ cat1.options[5] = new Option("Other", "5");
  * @param {number} cat1_selected the value of selected option
  */
 function getSubCategories(cat1_selected = false) {
-    // var cat1 = document.getElementById("es-cat1");
-    // var cat2 = document.getElementById("es-cat2");
-
     if (!cat1_selected) {
         form_url = cat1.options[cat1.selectedIndex].dataset.url;
         window.cat1_selected = cat1.options[cat1.selectedIndex].value;
@@ -37,6 +34,7 @@ function getSubCategories(cat1_selected = false) {
         window.cat1_selected = cat1_selected;
     }
 
+    // Category 2 select options:
     switch (window.cat1_selected) {
         // OPTION: Edwin App
         case "1":

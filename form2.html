@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Edwin Support Inquiry</title>
+
+        <link rel="stylesheet" href="bootstrap.min.css" type="text/css" />
+        <link href="custom.css" rel="stylesheet" type="text/css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,600,700"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form
+                        action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8"
+                        method="POST"
+                        data-toggle="validator"
+                    >
+                        <input
+                            type="hidden"
+                            name="orgid"
+                            value="00D6g000003uPDt"
+                        />
+                        <input
+                            type="hidden"
+                            name="retURL"
+                            value="https://edwinsupporttest.nelsontechdev.com/thankyou.html"
+                        />
+
+                        <!--  ----------------------------------------------------------------------  -->
+                        <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+                        <!--  these lines if you wish to test in debug mode.                          -->
+                        <!--  <input type="hidden" name="debug" value=1>                              -->
+                        <!--  <input type="hidden" name="debugEmail"                                  -->
+                        <!--  value="salesforce@kejosolutions.com">                                   -->
+                        <!--  ----------------------------------------------------------------------  -->
+
+                        <h1>Edwin Support Request</h1>
+
+                        <div class="form-group">
+                            <label for="es-cat1">
+                                What is your request regarding?
+                            </label>
+                            <select
+                                name="es-cat1"
+                                id="es-cat1"
+                                class="form-control"
+                                onchange="getSubCategories()"
+                            ></select>
+
+                            <select
+                                name="es-cat2"
+                                id="es-cat2"
+                                class="form-control"
+                                onchange="getForm()"
+                            >
+                                <option data-url="#" value="-">-</option>
+                            </select>
+                        </div>
+
+                        <h2>Who you are:</h2>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="name">Contact Name</label><br />
+                                    <!--
+                                        CG 05-06-2020: Saqib brought to our attention that Name cannot be a required field according to Privacy
+                                        restrictions for the province of Nova Scotia. The following two lines are commented out in case this is
+                                        re-instated in the future.-->
+                                    <!--<input id="name" class="form-control" required="required" maxlength="80" name="name" size="20" type="text" />
+                                        <div class="help-block with-errors"></div>-->
+                                    <input
+                                        id="name"
+                                        class="form-control"
+                                        maxlength="80"
+                                        name="name"
+                                        size="20"
+                                        type="text"
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <br />
+                                    <input
+                                        id="email"
+                                        class="form-control"
+                                        required="required"
+                                        maxlength="80"
+                                        name="email"
+                                        size="20"
+                                        type="email"
+                                        data-error="Valid email is required"
+                                    />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2>Issue Description:</h2>
+                        <div class="form-group">
+                            <label for="description"
+                                >Include Details of the Issue (Steps to
+                                Reproduce, Including Device Information, Browser
+                                and Operating System You're Using, Etc)</label
+                            >
+                            <br />
+                            <textarea
+                                name="description"
+                                id="description"
+                                onkeydown="limitText(this.form.description,document.getElementById('descriptionCount'),3000);"
+                                onkeyup="limitText(this.form.description,document.getElementById('descriptionCount'),3000);"
+                                size="3000"
+                                maxlength="3000"
+                                class="form-control"
+                                pattern=".*\S+.*"
+                            ></textarea>
+                            <p class="characterCount" id="descriptionCount">
+                                3000
+                            </p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="attachments">
+                                Attachements: <br />
+                                <span class="text-muted">
+                                    CSV, max 3, 5mb per file (<a href="#"
+                                        >download sample csv template</a
+                                    >)
+                                </span>
+                            </label>
+                            <input
+                                type="file"
+                                class="form-control-file"
+                                id="attachments"
+                                name="attachments"
+                            />
+                        </div>
+
+                        <br />
+
+                        <input
+                            type="submit"
+                            name="submit"
+                            class="btn btn-success btn-send"
+                            value="Submit"
+                        />
+
+                        <p class="text-muted">
+                            You can expect a response within 24 hours, Monday to
+                            Friday 8am to 6pm EST.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="jquery.min.js"></script>
+        <script src="popper.min.js"></script>
+        <script src="validator.min.js" type="application/javascript"></script>
+        <script src="edwin-support-form.js"></script>
+
+        <script>
+            function limitText(limitField, limitCount, limitNum) {
+                if (limitField.value.length > limitNum) {
+                    limitField.value = limitField.value.substring(0, limitNum);
+                } else {
+                    limitCount.innerHTML = limitNum - limitField.value.length;
+                }
+            }
+        </script>
+    </body>
+</html>
